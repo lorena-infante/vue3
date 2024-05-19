@@ -13,8 +13,9 @@ import Guitarra from './components/Guitarra.vue';
 //const state = reactive({});
 //con REF (arrays, strings, booleans and primitive types)
 const guitarras = ref([]);
+const carrito = ref([]);
 
-onMounted(()=>{
+onMounted(() => {
     //reactive
     /*state.guitarras = db;
     console.log(state.guitarras);
@@ -23,10 +24,11 @@ onMounted(()=>{
     guitarras.value = db;
     // Si quisiera utilizar una higher order function para array dentro del ref, siempre debo llamar ese ref con nombreDeLaVar.value.method(()=>[])
     console.log(guitarras.value);
-    
+
 });
 const agregarCarrito = (guitarra) => {
     console.log(guitarra);
+    carrito.value.push(guitarra);
 }
 
 </script>
@@ -108,10 +110,7 @@ const agregarCarrito = (guitarra) => {
     <main class="container-xl mt-5">
         <h2 class="text-center">Nuestra Colección</h2>
         <div class="row mt-5">
-            <Guitarra 
-                v-for="guitarra in guitarras"
-                :guitarra="guitarra"
-                @agregar-carrito="agregarCarrito"/>
+            <Guitarra v-for="guitarra in guitarras" :guitarra="guitarra" @agregar-carrito="agregarCarrito" />
         </div>
     </main>
 
