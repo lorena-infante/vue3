@@ -25,6 +25,9 @@ onMounted(()=>{
     console.log(guitarras.value);
     
 });
+const agregarCarrito = () => {
+    console.log('agregando...');
+}
 
 </script>
 
@@ -107,7 +110,8 @@ onMounted(()=>{
         <div class="row mt-5">
             <Guitarra 
                 v-for="guitarra in guitarras"
-                :guitarra="guitarra"/>
+                :guitarra="guitarra"
+                @agregar-carrito="agregarCarrito"/>
         </div>
     </main>
 
