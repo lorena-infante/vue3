@@ -25,8 +25,8 @@ onMounted(()=>{
     console.log(guitarras.value);
     
 });
-const agregarCarrito = () => {
-    console.log('agregando...');
+const agregarCarrito = (guitarra) => {
+    console.log(guitarra);
 }
 
 </script>
