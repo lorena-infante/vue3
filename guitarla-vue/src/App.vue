@@ -14,8 +14,14 @@ onMounted(() => {
 
 });
 const agregarCarrito = (guitarra) => {
-    console.log(guitarra);
-    carrito.value.push(guitarra);
+    const guitarExists = carrito.value.findIndex(el => el.id === guitarra.id);
+
+    if (guitarExists >= 0) {
+        carrito.value[guitarExists].cantidad++;
+    } else {
+        guitarra.cantidad = 1;
+        carrito.value.push(guitarra);
+    }
 }
 
 </script>

@@ -21,7 +21,7 @@ const props = defineProps({
                         <img class="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
 
                         <div id="carrito" class="bg-white p-3">
-                            <p v-if="carrito.length === 0" class="text-center">El carrito esta vacio</p>
+                            <p v-if="carrito.length === 0" class="text-center m-0">El carrito esta vacio</p>
                             <div v-else>
                                 <table class="w-100 table">
                                     <thead>
@@ -47,7 +47,7 @@ const props = defineProps({
                                                 <button type="button" class="btn btn-dark">
                                                     -
                                                 </button>
-                                                1
+                                                {{ producto.cantidad }}
                                                 <button type="button" class="btn btn-dark">
                                                     +
                                                 </button>
