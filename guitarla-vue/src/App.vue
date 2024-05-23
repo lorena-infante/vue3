@@ -23,11 +23,19 @@ const agregarCarrito = (guitarra) => {
         carrito.value.push(guitarra);
     }
 }
-const incrementarCantidad = () => {
-    console.log('...Más');
+const decrementarCantidad = (id) => {
+    const index = carrito.value.findIndex(el => el.id === id);
+    console.log(index);
+    if (carrito.value[index].cantidad > 1) {
+        carrito.value[index].cantidad--;
+    } else return;
 }
-const decrementarCantidad = () => {
-    console.log('Menos...');
+const incrementarCantidad = (id) => {
+    const index = carrito.value.findIndex(el => el.id === id);
+    console.log(index);
+    if (carrito.value[index].cantidad <= 4) {
+        carrito.value[index].cantidad++;
+    } else return;
 }
 </script>
 
