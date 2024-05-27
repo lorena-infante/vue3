@@ -26,14 +26,12 @@ const agregarCarrito = (guitarra) => {
 }
 const decrementarCantidad = (id) => {
     const index = carrito.value.findIndex(el => el.id === id);
-    console.log(index);
     if (carrito.value[index].cantidad > 1) {
         carrito.value[index].cantidad--;
     } else return;
 }
 const incrementarCantidad = (id) => {
     const index = carrito.value.findIndex(el => el.id === id);
-    console.log(index);
     if (carrito.value[index].cantidad <= 4) {
         carrito.value[index].cantidad++;
     } else return;
