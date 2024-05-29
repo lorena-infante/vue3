@@ -37,7 +37,7 @@ const agregarCarrito = (guitarra) => {
         guitarra.cantidad = 1;
         carrito.value.push(guitarra);
     }
-    guardarLS();
+
 
 }
 const decrementarCantidad = (id) => {
@@ -46,7 +46,7 @@ const decrementarCantidad = (id) => {
         carrito.value[index].cantidad--;
     } else return;
 
-    guardarLS();
+
 }
 const incrementarCantidad = (id) => {
     const index = carrito.value.findIndex(el => el.id === id);
@@ -54,17 +54,17 @@ const incrementarCantidad = (id) => {
         carrito.value[index].cantidad++;
     } else return;
 
-    guardarLS();
+
 }
 
 const eliminarProducto = (id) => {
     carrito.value = carrito.value.filter(producto => producto.id !== id);
-    guardarLS();
+
 }
 
 const vaciarCarrito = () => {
     carrito.value = [];
-    guardarLS();
+
 }
 
 </script>
