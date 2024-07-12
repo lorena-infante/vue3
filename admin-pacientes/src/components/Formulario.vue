@@ -51,6 +51,12 @@
 
 <script setup>
 import { reactive } from 'vue';
+import Alerta from './Alerta.vue';
+
+const alerta = reactive({
+    mensaje: '',
+    tipo: ''
+})
 
 const paciente = reactive({
     nombre: '',
@@ -62,10 +68,14 @@ const paciente = reactive({
 
 const validar = () => {
     //validar values
-    console.log(Object.values(paciente));
+
     if (Object.values(paciente).includes('')) {
+        console.log('dkdk')
+        alerta.mensaje = "Debe completar todos los campos";
+        alerta.tipo = 'error'
         return;
     }
-    console.log('Agregando...');
+    alerta.mensaje = "Paciente agregado con éxito";
+    alerta.tipo = 'exito'
 }
 </script>
