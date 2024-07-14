@@ -4,6 +4,7 @@
         <p class="text-lg mt-5 text-center mb-10">
             Añade pacientes y <span class="text-indigo-600 text-bold">adminístralos</span>
         </p>
+        <Alerta v-if="alerta.mensaje" :alerta="alerta" />
         <form @submit.prevent="validar" class="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
             <div class="mb-5">
                 <label for="mascota" class="block text-gray-700 uppercase font-bold">
@@ -46,6 +47,7 @@
                 value="Registrar Paciente" />
 
         </form>
+
     </div>
 </template>
 
@@ -70,7 +72,6 @@ const validar = () => {
     //validar values
 
     if (Object.values(paciente).includes('')) {
-        console.log('dkdk')
         alerta.mensaje = "Debe completar todos los campos";
         alerta.tipo = 'error'
         return;
