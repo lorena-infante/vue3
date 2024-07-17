@@ -9,9 +9,11 @@
             <div class="mb-5">
                 <label for="mascota" class="block text-gray-700 uppercase font-bold">
                     Nombre Mascota
+                    {{ nombre }}
                 </label>
                 <input type="text" id="mascota" placeholder="Nombre de mascota"
-                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md" v-model="paciente.nombre" />
+                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md"
+                    @input="$emit('update:nombre', $event.target.value)" />
 
             </div>
             <div class="mb-5">
@@ -19,28 +21,28 @@
                     Nombre Propietario
                 </label>
                 <input type="text" id="propietario" placeholder="Nombre del propietario"
-                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md" v-model="paciente.propietario" />
+                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md" />
             </div>
             <div class="mb-5">
                 <label for="email" class="block text-gray-700 uppercase font-bold">
                     Email
                 </label>
                 <input type="text" id="email" placeholder="Email"
-                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md" v-model="paciente.email" />
+                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md" />
             </div>
             <div class="mb-5">
                 <label for="alta" class="block text-gray-700 uppercase font-bold">
                     Fecha de alta
                 </label>
                 <input type="date" id="alta" placeholder="alta"
-                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md" v-model="paciente.alta" />
+                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md" />
             </div>
             <div class="mb-5">
                 <label for="sintomas" class="block text-gray-700 uppercase font-bold">
                     Síntomas
                 </label>
                 <textarea id="sintomas" placeholder="Describe los síntomas de tu mascota"
-                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md h-40" v-model="paciente.sintomas" />
+                    class="border-2 w-full p-2 my-2 placeholder-gray-400 rounded-md h-40" />
             </div>
             <input type="submit"
                 class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
@@ -55,18 +57,20 @@
 import { reactive } from 'vue';
 import Alerta from './Alerta.vue';
 
+defineEmits(['update:nombre']);
+
+const props = defineProps({
+    nombre: {
+        type: String,
+        required: true
+    }
+});
+
 const alerta = reactive({
     mensaje: '',
     tipo: ''
 })
 
-const paciente = reactive({
-    nombre: '',
-    propietario: '',
-    email: '',
-    alta: '',
-    sintomas: ''
-})
 
 const validar = () => {
     //validar values
